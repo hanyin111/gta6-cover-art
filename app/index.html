@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Frame — GTA-style cover maker</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">VF</span>
+    <div class="brand-text">
+      <h1>Vice Frame</h1>
+      <p>Turn your photos into a GTA-style cover</p>
+    </div>
+  </div>
+  <button id="exportBtn" class="export-btn" type="button">Export PNG</button>
+</header>
+
+<main class="layout">
+  <section class="stage-wrap">
+    <div class="stage">
+      <canvas id="stage" width="1080" height="1080" aria-label="Cover preview"></canvas>
+    </div>
+    <p class="hint">Drag a panel to reframe its photo · scroll over a panel to zoom · pick a panel card to fine-tune it</p>
+  </section>
+
+  <aside class="panel">
+    <section class="group">
+      <h2>Panels</h2>
+      <div id="slots" class="slots"></div>
+      <label class="check"><input id="onePhoto" type="checkbox"> One photo fills every panel</label>
+      <div class="row">
+        <button id="shuffleBtn" class="ghost-btn" type="button">Shuffle crops</button>
+        <label class="zoom-label">Zoom
+          <input id="zoom" type="range" min="1" max="3" step="0.01" value="1">
+        </label>
+      </div>
+    </section>
+
+    <section class="group">
+      <h2>Layout</h2>
+      <div class="seg" id="layoutSeg">
+        <button type="button" data-layout="grid" class="on">Grid · 5</button>
+        <button type="button" data-layout="duo">Duo · 2</button>
+        <button type="button" data-layout="hero">Hero · 2</button>
+      </div>
+      <h2>Export size</h2>
+      <div class="seg" id="sizeSeg">
+        <button type="button" data-size="square" class="on">1080×1080</button>
+        <button type="button" data-size="portrait">1080×1350</button>
+        <button type="button" data-size="landscape">1920×1080</button>
+      </div>
+    </section>
+
+    <section class="group">
+      <h2>Caption</h2>
+      <label class="field">Title
+        <input id="titleInput" type="text" maxlength="30" value="Vice City">
+      </label>
+      <label class="field">Kicker
+        <input id="kickerInput" type="text" maxlength="40" value="Stories from Leonida">
+      </label>
+      <div class="swatches" id="accents" aria-label="Accent colour"></div>
+    </section>
+
+    <section class="group">
+      <h2>Grade</h2>
+      <div class="seg wrap" id="gradeSeg">
+        <button type="button" data-grade="sunset" class="on">Sunset</button>
+        <button type="button" data-grade="neon">Neon</button>
+        <button type="button" data-grade="noir">Noir</button>
+        <button type="button" data-grade="clean">Clean</button>
+      </div>
+      <label class="check"><input id="sunToggle" type="checkbox" checked> Retro sun</label>
+    </section>
+
+    <p class="fineprint">Your photos never leave this browser — everything renders locally on a canvas. Sample photos are AI-made, free to use.</p>
+  </aside>
+</main>
+
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
